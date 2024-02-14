@@ -1,0 +1,26 @@
+<div class="text-center">
+  <h1 class="titulo"><img src="../assets/images/contalink-logo.svg" width="250" height="80" alt=""> {{title}}</h1>
+</div>
+
+<div class="table-responsive-sm">
+  <table class="table table-borderless table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Número de factura</th>
+        <th scope="col">Total</th>
+        <th scope="col">Fecha de la factura</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let f of facturas">
+        <th >{{f.id}}</th>
+        <td >{{f.invoiceNumber}}</td>
+        <td >{{f.total}}</td>
+        <td >{{f.invoiceDate | date: 'yyyy/MM/dd HH:mm:SS'}}</td>
+        <th >{{f.status}}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>
