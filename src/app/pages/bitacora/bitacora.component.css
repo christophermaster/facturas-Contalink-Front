@@ -1,0 +1,8 @@
+.my-pagination ::ng-deep .ngx-pagination span, .pagination-previous {
+    color: white;
+}
+
+.my-pagination ::ng-deep .ngx-pagination li :hover {
+    background: rgb(75, 179, 214);
+}
+

@@ -2,6 +2,20 @@
   <h1 class="titulo"><img src="../assets/images/contalink-logo.svg" width="250" height="80" alt=""> {{title}}</h1>
 </div>
 
+
+<div class="row d-flex justify-content-end pb-2">
+  <div class="col-3  d-flex justify-content-end">
+    <label for="fechaHoraInicio" class="text-white">Fecha Inicial:</label>
+    <input type="datetime-local" class="form-control float-right" id="fechaHoraInicio" [(ngModel)]="fechaHoraInicio"
+      name="fechaHoraInicio" style="width: 220px;">
+  </div>
+  <div class="col-3 d-flex justify-content-end">
+    <label for="fechaHoraFin" class="text-white">Fecha Fin:</label>
+    <input type="datetime-local" class="form-control float-right" id="fechaHoraFin" [(ngModel)]="fechaHoraFin"
+      name="fechaHoraFin" style="width: 220px;">
+  </div>
+</div>
+
 <div class="table-responsive-sm">
   <table class="table table-borderless table-dark">
     <thead>
@@ -13,19 +27,21 @@
         <th scope="col">Estado</th>
       </tr>
     </thead>
-    <tbody >
-      <tr *ngFor="let f of facturas | paginate: { itemsPerPage: 10, currentPage: paginaActual, totalItems: totalPaginas }">
-        <th >{{f.id}}</th>
-        <td >{{f.invoiceNumber}}</td>
-        <td >{{f.total}}</td>
-        <td >{{f.invoiceDate | date: 'yyyy/MM/dd HH:mm:SS'}}</td>
-        <th >{{f.status}}</th>
+    <tbody>
+      <tr
+        *ngFor="let f of facturas | paginate: { itemsPerPage: 10, currentPage: paginaActual, totalItems: totalPaginas }">
+        <th>{{f.id}}</th>
+        <td>{{f.invoiceNumber}}</td>
+        <td>{{f.total}}</td>
+        <td>{{f.invoiceDate | date: 'yyyy/MM/dd HH:mm:SS'}}</td>
+        <th>{{f.status}}</th>
       </tr>
     </tbody>
   </table>
 
   <div class="d-flex justify-content-center">
-    <pagination-controls class="my-pagination" (pageChange)="onPageChanged($event)" previousLabel="" nextLabel="" [responsive]="true">
+    <pagination-controls class="my-pagination" (pageChange)="onPageChanged($event)" previousLabel="" nextLabel=""
+      [responsive]="true">
     </pagination-controls>
   </div>
 </div>

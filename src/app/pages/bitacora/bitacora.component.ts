@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { BitacoraService } from 'src/app/servives/bitacora.service';
 import { DatePipe } from '@angular/common';
+import { DatepickerOptions } from 'ng2-datepicker';
+import { getYear } from 'date-fns';
+import locale from 'date-fns/locale/en-US';
 
 @Component({
   selector: 'app-bitacora',
@@ -16,11 +19,16 @@ export class BitacoraComponent implements OnInit {
   totalPaginas: number = 0;
   paginaActual: number = 1;
   facturas: any = [];
+  fechaHoraInicio: string ="";
+  fechaHoraFin: string ="";
 
   constructor(private bitacoraSvc: BitacoraService, private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.getAllCharacters();
+    this.fechaHoraInicio = new Date().toISOString().slice(0, 16); // Valor inicial
+    this.fechaHoraFin = new Date().toISOString().slice(0, 16); // Valor inicial
+
   }
 
   getAllCharacters(pagina?: number) {
