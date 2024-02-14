@@ -9,6 +9,7 @@ import { CharacterComponent } from './pages/character/character.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { BitacoraComponent } from './pages/bitacora/bitacora.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BitacoraComponent } from './pages/bitacora/bitacora.component';
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

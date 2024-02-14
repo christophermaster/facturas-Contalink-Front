@@ -8,29 +8,37 @@ import { DatePipe } from '@angular/common';
   selector: 'app-bitacora',
   templateUrl: './bitacora.component.html',
   styleUrls: ['./bitacora.component.css'],
-  providers: [DatePipe] 
+  providers: [DatePipe]
 })
 export class BitacoraComponent implements OnInit {
-  title='Lista de Factura';
 
-  facturas: any = [] ;
-  constructor(private bitacoraSvc:BitacoraService, private datePipe: DatePipe) { }
+  title = 'Lista de Factura';
+  totalPaginas: number = 0;
+  paginaActual: number = 1;
+  facturas: any = [];
 
-  ngOnInit(){
+  constructor(private bitacoraSvc: BitacoraService, private datePipe: DatePipe) { }
+
+  ngOnInit() {
     this.getAllCharacters();
   }
 
-  getAllCharacters(){
+  getAllCharacters(pagina?: number) {
     this.bitacoraSvc.obtenerInvoicesPorFechasConPaginacion().subscribe({
-      next: (res:any) => {
-        console.log("res",res)
+      next: (res: any) => {
         this.facturas = res.content
-        console.log(" this.facturas", this.facturas)
+        this.totalPaginas = res.totalPages;
       },
-      error: (err:any) => {
+      error: (err: any) => {
         console.log(err);
       }
     });
+  }
+
+  onPageChanged(newPage: number): void {
+    this.paginaActual = newPage;
+    this.getAllCharacters(newPage);
+    // Puedes agregar más lógica aquí según tus necesidades
   }
 
 }
