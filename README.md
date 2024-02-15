@@ -1,27 +1,55 @@
 # Facturas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.1.
+## Proyecto Angular
 
-## Development server
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 13.2.1.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Requisitos para la ejecución del proyecto 
 
-## Code scaffolding
+Antes de ejecutar el proyecto, asegúrate de tener instalados los siguientes requisitos:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+- [PostgreSQL](https://www.postgresql.org/)
 
-## Build
+## Dependencias
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Instala las dependencias utilizando el siguiente comando:
 
-## Running unit tests
+```bash
+npm install
+```
+## Servidor de Desarrollo
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Ejecuta `npm start` para iniciar un servidor de desarrollo. Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si realizas cambios en alguno de los archivos fuente.
 
-## Running end-to-end tests
+```bash
+npm start
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Construcción
 
-## Further help
+Ejecuta `npm build` para compilar el proyecto. Los artefactos de compilación se almacenarán en el directorio `dist/`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+npm build
+```
+## Ejecutar Pruebas End-to-End
+
+Ejecuta `npm e2e` para ejecutar las pruebas end-to-end a través de una plataforma de tu elección. Para usar este comando, primero debes agregar un paquete que implemente capacidades de prueba end-to-end.
+
+```bash
+npm e2e
+```
+## Ayuda Adicional
+
+Para obtener más ayuda sobre Angular CLI, utiliza `ng help` o visita la página [Angular CLI Overview and Command Reference](https://angular.io/cli).
+
+
+## Proyecto Ejecutado 
+
+### Evidencias
+#### HOME
+![Evidencias 1](./imagenes_pruebas/Evidencia-1.PNG)
+#### Tabla de resultado
+![Evidencias 2](./imagenes_pruebas/Evidencia-2.PNG)
