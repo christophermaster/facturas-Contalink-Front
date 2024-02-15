@@ -19,6 +19,11 @@ Instala las dependencias utilizando el siguiente comando:
 ```bash
 npm install
 ```
+
+## Importante 
+
+Antes de ejecutar este proyecto del FRONT, se recomienda descargar el proyecto correspondiente al BACK desde `https://github.com/christophermaster/facturas-Contalink-Back/tree/develop`. Este proyecto BACK contiene la API necesaria para obtener los datos. Asegúrate de seguir el proceso de instalación adecuado antes de iniciar el proyecto FRONT.
+
 ## Servidor de Desarrollo
 
 Ejecuta `npm start` para iniciar un servidor de desarrollo. Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si realizas cambios en alguno de los archivos fuente.
