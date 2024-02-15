@@ -1,4 +1,5 @@
-.my-pagination ::ng-deep .ngx-pagination span, .pagination-previous {
+.my-pagination ::ng-deep .ngx-pagination span,
+.pagination-previous {
     color: white;
 }
 
@@ -6,3 +7,34 @@
     background: rgb(75, 179, 214);
 }
 
+.table-container {
+    max-height: 400px;
+    /* Altura máxima del contenedor */
+    overflow-y: auto;
+    /* Agrega un scroll vertical cuando sea necesario */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Estilos específicos para WebKit (Chrome, Safari, etc.) */
+.table-container::-webkit-scrollbar {
+    width: 8px;
+    /* Ancho del scrollbar */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    /* Color del thumb (el "mango" del scrollbar) */
+    border-radius: 4px;
+    /* Bordes redondeados */
+}
+
+.table-container::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    /* Color del track (la "ranura" del scrollbar) */
+    border-radius: 4px;
+    /* Bordes redondeados */
+}

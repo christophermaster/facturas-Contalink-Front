@@ -21,9 +21,6 @@ export class FacturasComponent implements OnInit {
   }
 
   getAllCharacters(pagina?: number, tamanoPagina?: number, fechaInicial?: string, fechaFinal?: string) {
-    
-    console.log("fechaInicio getAllCharacters",fechaInicial)
-
     this.bitacoraSvc.obtenerInvoicesPorFechasConPaginacion(pagina, tamanoPagina, fechaInicial, fechaFinal).subscribe({
       next: (res: any) => {
         this.facturas = res.content
@@ -42,8 +39,6 @@ export class FacturasComponent implements OnInit {
 
   aplicarFiltro(event: { fechaInicio: string, fechaFin: string, tamanoPagina: number }) {
     const { fechaInicio, fechaFin, tamanoPagina } = event
-    console.log("fechaInicio aplicarFiltro",fechaInicio)
-
     this.getAllCharacters(this.paginaActual, tamanoPagina, fechaInicio, fechaFin)
   }
 

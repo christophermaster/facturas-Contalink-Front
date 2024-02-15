@@ -26,17 +26,12 @@ export class FacturasService {
     let params = new HttpParams()
       .set('pagina', pagina.toString())
       .set('tamanoPagina', tamanoPagina.toString())
-      if (fechaInicial) {
-        console.log("entra",params)
+    if (fechaInicial)
+      params = params.set('fechaInicial', fechaInicial);
 
-        params = params.set('fechaInicial', fechaInicial);
-      }
-      
-      if (fechaFinal) {
-        params =params.set('fechaFinal', fechaFinal);
-      }
+    if (fechaFinal)
+      params = params.set('fechaFinal', fechaFinal);
 
-      console.log("params",params)
     return this.http.get(`${URL_API}/facturas-paginada`, { headers, params }).pipe(map((data: any) => data));
   }
 
