@@ -9,7 +9,7 @@ const URL_API = environment.facturas;
 @Injectable({
   providedIn: 'root'
 })
-export class BitacoraService {
+export class FacturasService {
 
   private readonly USERNAME = environment.user;
   private readonly PASSWORD = environment.password;

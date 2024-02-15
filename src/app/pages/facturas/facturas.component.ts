@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core'
-import { BitacoraService } from 'src/app/servives/bitacora.service'
+import { FacturasService } from 'src/app/servives/facturas.service'
 import { DatePipe } from '@angular/common'
 @Component({
-  selector: 'app-bitacora',
-  templateUrl: './bitacora.component.html',
-  styleUrls: ['./bitacora.component.css'],
+  selector: 'app-facturas',
+  templateUrl: './facturas.component.html',
+  styleUrls: ['./facturas.component.css'],
   providers: [DatePipe]
 })
-export class BitacoraComponent implements OnInit {
+export class FacturasComponent implements OnInit {
 
   title = 'Lista de Factura'
   totalPaginas: number = 0
   paginaActual: number = 0
   facturas: any = []
 
-  constructor(private bitacoraSvc: BitacoraService, private datePipe: DatePipe) { }
+  constructor(private bitacoraSvc: FacturasService, private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.getAllCharacters()
