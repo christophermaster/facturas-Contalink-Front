@@ -4,8 +4,8 @@
 
 export const environment = {
   facturas:'http://localhost:8080/api',
-  public_key:'3692b74335d6466ff4ae935af0fcc94b',
-  hash:'d418a2a2d1ad573e04855c354dc1f1a5',
+  user:'admin',
+  password:'password',
   production: false
 };
 

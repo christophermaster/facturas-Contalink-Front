@@ -1,12 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { BitacoraService } from 'src/app/servives/bitacora.service';
-import { DatePipe } from '@angular/common';
-import { DatepickerOptions } from 'ng2-datepicker';
-import { getYear } from 'date-fns';
-import locale from 'date-fns/locale/en-US';
-
+import { Component, OnInit } from '@angular/core'
+import { BitacoraService } from 'src/app/servives/bitacora.service'
+import { DatePipe } from '@angular/common'
 @Component({
   selector: 'app-bitacora',
   templateUrl: './bitacora.component.html',
@@ -15,38 +9,42 @@ import locale from 'date-fns/locale/en-US';
 })
 export class BitacoraComponent implements OnInit {
 
-  title = 'Lista de Factura';
-  totalPaginas: number = 0;
-  paginaActual: number = 1;
-  facturas: any = [];
-  fechaHoraInicio: string ="";
-  fechaHoraFin: string ="";
+  title = 'Lista de Factura'
+  totalPaginas: number = 0
+  paginaActual: number = 0
+  facturas: any = []
 
   constructor(private bitacoraSvc: BitacoraService, private datePipe: DatePipe) { }
 
   ngOnInit() {
-    this.getAllCharacters();
-    this.fechaHoraInicio = new Date().toISOString().slice(0, 16); // Valor inicial
-    this.fechaHoraFin = new Date().toISOString().slice(0, 16); // Valor inicial
-
+    this.getAllCharacters()
   }
 
-  getAllCharacters(pagina?: number) {
-    this.bitacoraSvc.obtenerInvoicesPorFechasConPaginacion().subscribe({
+  getAllCharacters(pagina?: number, tamanoPagina?: number, fechaInicial?: string, fechaFinal?: string) {
+    
+    console.log("fechaInicio getAllCharacters",fechaInicial)
+
+    this.bitacoraSvc.obtenerInvoicesPorFechasConPaginacion(pagina, tamanoPagina, fechaInicial, fechaFinal).subscribe({
       next: (res: any) => {
         this.facturas = res.content
-        this.totalPaginas = res.totalPages;
+        this.totalPaginas = res.totalPages
       },
       error: (err: any) => {
-        console.log(err);
+        console.log(err)
       }
-    });
+    })
   }
 
   onPageChanged(newPage: number): void {
-    this.paginaActual = newPage;
-    this.getAllCharacters(newPage);
-    // Puedes agregar más lógica aquí según tus necesidades
+    this.paginaActual = newPage
+    this.getAllCharacters(newPage)
+  }
+
+  aplicarFiltro(event: { fechaInicio: string, fechaFin: string, tamanoPagina: number }) {
+    const { fechaInicio, fechaFin, tamanoPagina } = event
+    console.log("fechaInicio aplicarFiltro",fechaInicio)
+
+    this.getAllCharacters(this.paginaActual, tamanoPagina, fechaInicio, fechaFin)
   }
 
 }

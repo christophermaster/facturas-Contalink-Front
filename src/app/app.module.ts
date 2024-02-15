@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { FiltroComponent } from './shared/filtro/filtro.component';
+
 import { BitacoraComponent } from './pages/bitacora/bitacora.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DatepickerModule } from 'ng2-datepicker';
@@ -15,6 +17,7 @@ import { DatepickerModule } from 'ng2-datepicker';
     AppComponent,
     NavbarComponent,
     BitacoraComponent,
+    FiltroComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,7 @@ import { DatepickerModule } from 'ng2-datepicker';
     RouterModule,
     HttpClientModule,
     NgxPaginationModule,
-    DatepickerModule
+    DatepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

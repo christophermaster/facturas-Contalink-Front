@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
@@ -6,15 +6,13 @@ import { map } from 'rxjs/operators';
 
 const URL_API = environment.facturas;
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class BitacoraService {
 
-
-  private readonly USERNAME = 'admin';
-  private readonly PASSWORD = 'password';
+  private readonly USERNAME = environment.user;
+  private readonly PASSWORD = environment.password;
 
   constructor(private http: HttpClient) { }
 
@@ -22,10 +20,24 @@ export class BitacoraService {
     const credentials = btoa(`${this.USERNAME}:${this.PASSWORD}`);
     return new HttpHeaders().set('Authorization', `Basic ${credentials}`);
   }
-  
-  obtenerInvoicesPorFechasConPaginacion(): Observable<any> {
+
+  obtenerInvoicesPorFechasConPaginacion(pagina: number = 0, tamanoPagina: number = 10, fechaInicial?: string, fechaFinal?: string): Observable<any> {
     const headers = this.getAuthHeaders();
-    return this.http.get(`${URL_API}/facturas-paginada`, { headers }).pipe(map((data: any) => data));
+    let params = new HttpParams()
+      .set('pagina', pagina.toString())
+      .set('tamanoPagina', tamanoPagina.toString())
+      if (fechaInicial) {
+        console.log("entra",params)
+
+        params = params.set('fechaInicial', fechaInicial);
+      }
+      
+      if (fechaFinal) {
+        params =params.set('fechaFinal', fechaFinal);
+      }
+
+      console.log("params",params)
+    return this.http.get(`${URL_API}/facturas-paginada`, { headers, params }).pipe(map((data: any) => data));
   }
 
 }
